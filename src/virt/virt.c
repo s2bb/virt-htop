@@ -18,11 +18,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "virt.h"
-#include "virt_node.h"
-#include "virt_domain.h"
-#include "utils.h"
 #include "tui.h"
+#include "utils.h"
+#include "virt.h"
+#include "virt_domain.h"
+#include "virt_node.h"
+
 #include <stdio.h>
 
 void virt_error_function(void *userdata, virErrorPtr error)

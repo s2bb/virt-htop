@@ -18,8 +18,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "virt_domain.h"
 #include "utils.h"
+#include "virt_domain.h"
 
 const char *virt_domain_state_text[VIRT_STATE_TEXT_SIZE] = {
     "unknown     ",
@@ -205,14 +205,16 @@ void virt_get_domain_memory_data(virt_data *virt, virt_domain_data *data)
         if (mem_count > 0) {
             for (int i = 0; i != mem_count; ++i) {
                 switch (mem_stats[i].tag) {
-                    case VIR_DOMAIN_MEMORY_STAT_SWAP_IN:        break;/*mem_swap    = mem_stats[i].val; break;*/
+                    case VIR_DOMAIN_MEMORY_STAT_SWAP_IN:        break;
                     case VIR_DOMAIN_MEMORY_STAT_SWAP_OUT:       break;
                     case VIR_DOMAIN_MEMORY_STAT_MAJOR_FAULT:    break;
                     case VIR_DOMAIN_MEMORY_STAT_MINOR_FAULT:    break;
                     case VIR_DOMAIN_MEMORY_STAT_UNUSED:         break;
                     case VIR_DOMAIN_MEMORY_STAT_AVAILABLE:      break;
-                    case VIR_DOMAIN_MEMORY_STAT_ACTUAL_BALLOON: mem_max     = mem_stats[i].val; break;
-                    case VIR_DOMAIN_MEMORY_STAT_RSS:            mem_curr    = mem_stats[i].val; break;
+                    case VIR_DOMAIN_MEMORY_STAT_ACTUAL_BALLOON:
+                        mem_max  = mem_stats[i].val; break;
+                    case VIR_DOMAIN_MEMORY_STAT_RSS:
+                        mem_curr = mem_stats[i].val; break;
                     case VIR_DOMAIN_MEMORY_STAT_USABLE:         break;
                     case VIR_DOMAIN_MEMORY_STAT_LAST_UPDATE:    break;
                 }

@@ -22,6 +22,7 @@
 /** @file tui_domain.h 
  * This file contains routines to draw domain columns */
 #include "tui.h"
+
 /** Number of columns displayed in the middle of the screen */
 #define TUI_DOMAIN_COLUMN_SIZE (6)
 /** This is used as a column item description for filling up the selection color */

@@ -17,10 +17,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include <time.h>
-#include "utils.h"
-#include "tui.h"
 #include "arguments.h"
+#include "tui.h"
+#include "utils.h"
+
+#include <time.h>
+
 #define LOG_FILE ("virt-htop.log")
 
 int main_loop(virt_data *virt, tui_data *tui)

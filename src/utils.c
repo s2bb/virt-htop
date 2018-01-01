@@ -18,6 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "utils.h"
+
 #define NUMBER_BUFFER_SIZE 30
 
 char *number_to_str(void *x, const char *format, type_tag tag)

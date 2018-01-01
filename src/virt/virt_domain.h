@@ -20,7 +20,9 @@
  */
 #ifndef VIRT_DOMAIN_H
 #define VIRT_DOMAIN_H
+
 #include "virt.h"
+
 /** Number of possible domain data types */
 #define VIRT_DOMAIN_DATA_TYPE_SIZE (6)
 /** Number of possible domain states */

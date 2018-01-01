@@ -23,10 +23,11 @@
  * This file contains routines to draw terminal output using ncurses */
 #include <ncurses.h>
 #include <menu.h>
-#include "virt.h"
-#include "virt_domain.h"
-#include "tui_node.h"
+
 #include "tui_domain.h"
+#include "tui_node.h"
+#include "virt.h"
+
 /** Input delay between keystrokes in milliseconds */
 #define TUI_INPUT_DELAY (50)
 /** Time between screen refresh in seconds */

@@ -20,10 +20,12 @@
  */
 #ifndef VIRT_H
 #define VIRT_H
-#include <stdlib.h>
+
 #include <libvirt/libvirt.h>
 #include <libvirt/virterror.h>
+#include <stdlib.h>
 #include <syslog.h>
+
 /** Extract libvirt's version number macros */
 #define LIB_MAJOR_VERSION(x) (x / 1000000)
 #define LIB_MINOR_VERSION(x) ((x - (LIB_MAJOR_VERSION(x) * 1000000)) / 1000)

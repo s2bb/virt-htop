@@ -20,7 +20,9 @@
  */
 #ifndef VIRT_NODE_H
 #define VIRT_NODE_H
+
 #include "virt.h"
+
 /** Number of possible node data types */
 #define VIRT_NODE_DATA_TYPE_SIZE (5)
 
