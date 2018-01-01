@@ -1,43 +1,35 @@
 # Copyright (C) Sebastian Bialobrzecki <sbb@openmailbox.org>
-# -- Names --
-cmake_minimum_required(VERSION 3.0)
+# -- names --
+cmake_minimum_required(VERSION 3.1)
 project(virt-htop)
 
-# -- Requirements --
-# Libvirt
-set(LIBVIRT_LINK "-lvirt")
+# -- load custom cmake modules --
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-# Curses
+# -- requirements --
+find_package(Libvirt REQUIRED)
+include_directories(${LIBVIRT_INCLUDE_DIRS})
+
 find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIRS})
-set(CURSES_LINK_MENU "-lmenu")
 
-# -- Directories --
-set(DIR_ROOT ".")
-set(DIR_SRC  "${DIR_ROOT}/src")
-set(DIR_VIRT "${DIR_SRC}/virt")
-set(DIR_TUI  "${DIR_SRC}/tui")
+find_package(Menu REQUIRED)
+include_directories(${MENU_INCLUDE_DIRS})
 
-# -- Sources --
-set(SOURCES
-./src/main.c
-./src/arguments.c
-./src/utils.c
-./src/virt/virt.c
-./src/virt/virt_node.c
-./src/virt/virt_domain.c
-./src/tui/tui.c
-./src/tui/tui_node.c
-./src/tui/tui_domain.c)
+# -- directories --
+set(DIR_SRC "${CMAKE_CURRENT_SOURCE_DIR}/src")
 
-# -- Targets --
+set(INCLUDES ${INCLUDES} ${DIR_SRC})
+add_subdirectory(${DIR_SRC})
+
+# -- targets --
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-# -- Include --
-target_include_directories(${PROJECT_NAME} PUBLIC ${DIR_SRC} ${DIR_VIRT} ${DIR_TUI})
+# -- includes --
+target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDES})
 
-# -- Linking --
-target_link_libraries(${PROJECT_NAME} ${CURSES_LIBRARIES} ${CURSES_LINK_MENU} ${LIBVIRT_LINK})
+# -- linking --
+target_link_libraries(${PROJECT_NAME} ${CURSES_LIBRARIES} ${MENU_LIBRARIES} ${LIBVIRT_LIBRARIES})
 
-# -- Compiler flags --
+# -- compiler flags --
 target_compile_options(${PROJECT_NAME} PUBLIC -Wall -Werror)
